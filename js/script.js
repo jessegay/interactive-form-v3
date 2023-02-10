@@ -1,9 +1,10 @@
 
 
+// Variables to store form inputs
+const nameInput = document.querySelector('#name');
 
-
-
-
+// give "name" field command focus on load. 
+nameInput.focus();
 
 
 /*
