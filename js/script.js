@@ -2,17 +2,27 @@
 
 // Variables to store form inputs
 const nameInput = document.querySelector('#name');
-
 const other = document.querySelector('#other-job-role');
-console.log(other);
-
-
+const title =document.querySelector('#title');
+console.log(title);
 
 
 // give "name" field command focus on load. 
 nameInput.focus();
 // hide "job_role_other"
 other.style.display = 'none';
+// Program the "Job Role" <select> element to listen for user changes. When a change is detected, display/hide the "text field" based on the user’s selection in the drop down menu.
+title.addEventListener('change', (e) => {
+  if (e.target.value == 'other') {
+    other.style.display = 'inline-block';  
+  } else {
+    other.style.display = 'none';
+  }
+})
+
+
+
+
 /*
 Notes from Brian for refactoring validations.
 Create one reusable function then at the end use:
