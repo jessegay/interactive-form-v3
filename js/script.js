@@ -3,10 +3,16 @@
 // Variables to store form inputs
 const nameInput = document.querySelector('#name');
 
+const other = document.querySelector('#other-job-role');
+console.log(other);
+
+
+
+
 // give "name" field command focus on load. 
 nameInput.focus();
-
-
+// hide "job_role_other"
+other.style.display = 'none';
 /*
 Notes from Brian for refactoring validations.
 Create one reusable function then at the end use:
