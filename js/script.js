@@ -3,8 +3,15 @@
 // Variables to store form inputs
 const nameInput = document.querySelector('#name');
 const other = document.querySelector('#other-job-role');
-const title =document.querySelector('#title');
-console.log(title);
+const title = document.querySelector('#title');
+
+const designSelect = document.querySelector('#design');
+const colorSelect = document.querySelector('#color');
+//const colorOptions =
+//console.log(colorSelect.options);
+//console.log(colorSelect.firstElementChild);
+
+
 
 
 // give "name" field command focus on load. 
@@ -20,8 +27,13 @@ title.addEventListener('change', (e) => {
   }
 })
 
+//T Shirt Section
+
+// disable color select until Design selection is made
+colorSelect.disabled = true;
 
 
+// https://fundamentals.generalassemb.ly/11_unit/dom-cheatsheet.html
 
 /*
 Notes from Brian for refactoring validations.
