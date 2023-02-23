@@ -1,4 +1,4 @@
-
+// https://teamtreehouse.com/library/walkthrough-for-project-3-interactive-form
 
 // Variables to store form inputs
 const nameInput = document.querySelector('#name');
@@ -22,7 +22,7 @@ other.style.display = 'none';
 // Program the "Job Role" <select> element to listen for user changes. When a change is detected, display/hide the "text field" based on the user’s selection in the drop down menu.
 title.addEventListener('change', (e) => {
   if (e.target.value == 'other') {
-    other.style.display = 'inline-block';  
+    other.style.display = 'inline-block';
   } else {
     other.style.display = 'none';
   }
@@ -35,17 +35,31 @@ colorSelect.disabled = true;
 // 3.Use the variable for the "Design" or "Theme" menu to listen for the change event on this element.
 designSelect.addEventListener('change', e => {
   colorSelect.disabled = false;
-  for (let i = 0; i < designSelect.length; i++) {
-    const design = designSelect[i].value;
-    const dataTheme = designSelect[i].getAttribute('data-theme');
-    console.log(design);
-    console.log(dataTheme);
+  // for (let i = 0; i < designSelect.length; i++) {
+  //   const design = designSelect[i].value;
+  //   const dataTheme = designSelect[i].getAttribute('data-theme');
+  //   console.log(design);
+  //   console.log(dataTheme);
+  // }
+  //console.log(e.target.value);
+  const theme = e.target.value;
+
+  //if theme = colorSelect[i].getAttribute('data-theme'), .disabled = false
+  for (let i = 0; i < colorSelect.length; i++) {
+    if (colorSelect[i].getAttribute('data-theme') == theme) {
+      colorSelect[i].disabled = false;
+    } else {
+      colorSelect[i].disabled = true;
+    }
+
   }
-} )
+
+
+})
 
 //In the event listener, enable the “Color” <select> element that was previously disabled.
 
-//Also in the event listener, loop over the option element children of the "Color" <select> element. The children property will be helpful here. (Why? Can't I use an array manipulation method?)
+//Also in the event listener, loop over the option element children of the "Color" <select> element. The children property will be helpful here.
 
 
 /*In the loop, create variables to reference the following two items:
