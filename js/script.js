@@ -34,45 +34,30 @@ title.addEventListener('change', (e) => {
 colorSelect.disabled = true;
 // 3.Use the variable for the "Design" or "Theme" menu to listen for the change event on this element.
 designSelect.addEventListener('change', e => {
-  colorSelect.disabled = false;
-  // for (let i = 0; i < designSelect.length; i++) {
-  //   const design = designSelect[i].value;
-  //   const dataTheme = designSelect[i].getAttribute('data-theme');
-  //   console.log(design);
-  //   console.log(dataTheme);
-  // }
-  //console.log(e.target.value);
+  colorSelect.disabled = false; // enable the “Color” <select> element that was previously disabled.
   const theme = e.target.value;
 
   //if theme = colorSelect[i].getAttribute('data-theme'), .disabled = false
   for (let i = 0; i < colorSelect.length; i++) {
     if (colorSelect[i].getAttribute('data-theme') == theme) {
-      colorSelect[i].disabled = false;
+      colorSelect[i].hidden = false;
+      colorSelect[i].setAttribute('selected', 'true') ;
     } else {
-      colorSelect[i].disabled = true;
+      colorSelect[i].hidden = true;
+      colorSelect[i].removeAttribute('selected'); //It's not intuitive that you have to remove the attribute to make it false. Intuitively I'd think to use setAttribute('selected', 'false'). I guess that's a difference between an attribute and a property which has a value.
     }
 
   }
-
-
 })
 
-//In the event listener, enable the “Color” <select> element that was previously disabled.
-
-//Also in the event listener, loop over the option element children of the "Color" <select> element. The children property will be helpful here.
 
 
-/*In the loop, create variables to reference the following two items:
-The value of the event.target
-The "data-theme" attribute of the loop’s current option element. The getAttribute method will be helpful here. Why can't I use dot notation?
-
-//Log out the two variables that were just created to inspect them. You’ll have to make a selection in the "Design" menu to print those log statements to the console.
-// I think this works? START HERE.
-
-//Still in the loop, create a conditional that checks if the two variables that were just created are equal to one another. If they are, set the hidden property of the loop’s current option element to false, and set the selected attribute of the loop’s current option element to true. And if the two variables are not equal to one another, set the hidden property of the loop’s current option element to true, and set the selected attribute of the loop’s current option element to false.
 
 
-// https://fundamentals.generalassemb.ly/11_unit/dom-cheatsheet.html
+
+
+
+
 
 /*
 Notes from Brian for refactoring validations.
