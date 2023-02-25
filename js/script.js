@@ -51,9 +51,30 @@ designSelect.addEventListener('change', e => {
 })
 
 
+// Activities checkboxes
+const checkboxes = document.querySelectorAll('.activities input');
+console.log(checkboxes);
+document.querySelector('.activities').addEventListener('change', (e) => {
+  totalCost = 0;
+  const clicked = e.target;
+  const clickedType = e.target.getAttribute('data-day-and-time');
+  for (let i=0; i < checkboxes.length; i++) {
+    let checkboxType = checkboxes[i].getAttribute('data-day-and-time');
+    if (clickedType === checkboxType && clicked !== checkboxes[i]) {
+      if (clicked.checked) {
+        checkboxes[i].disabled = true;
+      } else {
+        checkboxes[i].disabled = false;
+      }
+    }
+
+  }
 
 
 
+
+
+})
 
 
 
