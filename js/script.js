@@ -52,6 +52,7 @@ designSelect.addEventListener('change', e => {
 
 
 // Activities checkboxes
+//FIXME: Wait, is this the old way of doing it? Is this even a requirement of the new version?
 const checkboxes = document.querySelectorAll('.activities input');
 console.log(checkboxes);
 document.querySelector('.activities').addEventListener('change', (e) => {
@@ -69,11 +70,6 @@ document.querySelector('.activities').addEventListener('change', (e) => {
     }
 
   }
-
-
-
-
-
 })
 
 
