@@ -91,7 +91,7 @@ registerFieldset.addEventListener('change', (e) => {
   //console.log(totalCostDisplay);
 })
 
-
+//new line
 
 /*
 Notes from Brian for refactoring validations.
