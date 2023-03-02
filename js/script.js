@@ -74,20 +74,21 @@ document.querySelector('.activities').addEventListener('change', (e) => {
 
 // New way
 const registerFieldset = document.querySelector('.activities');
-const totalCostDisplay = document.querySelector('.activities-cost');
+let totalCostDisplay = document.querySelector('.activities-cost');
 // console.log(registerFieldset);
 // console.log(totalCostDisplay);
 registerFieldset.addEventListener('change', (e) => {
   const costOfClickedEvent = +e.target.getAttribute('data-cost');
   // console.log(costOfClickedEvent);
   // console.log(typeof costOfClickedEvent);
+  //Calculate totalCost. If event is checked, add it, if unchecked, subtract it.
   if (e.target.checked == true) {
     totalCost += costOfClickedEvent;
   } else {
     totalCost -= costOfClickedEvent;
   }
-alert(totalCost);
-
+  totalCostDisplay.innerHTML = `Total: $ ${totalCost}`;
+  //console.log(totalCostDisplay);
 })
 
 
