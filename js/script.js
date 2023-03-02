@@ -12,7 +12,8 @@ const colorSelect = document.querySelector('#color');
 //console.log(colorSelect.firstElementChild);
 //colorOptionsArray = colorSelect.options;
 //console.log(colorOptionsArray[2].getAttribute('data-theme')); //something is wrong with this approach. colorOptionsArray is an HTMLCollection, but not an array?
-
+// Total Cost
+let totalCost = 0;
 
 
 // give "name" field command focus on load. 
@@ -56,7 +57,6 @@ designSelect.addEventListener('change', e => {
 const checkboxes = document.querySelectorAll('.activities input');
 console.log(checkboxes);
 document.querySelector('.activities').addEventListener('change', (e) => {
-  totalCost = 0;
   const clicked = e.target;
   const clickedType = e.target.getAttribute('data-day-and-time');
   for (let i=0; i < checkboxes.length; i++) {
@@ -72,6 +72,10 @@ document.querySelector('.activities').addEventListener('change', (e) => {
   }
 })
 
+// New way
+const registerFieldset = document.querySelector('.activities');
+const totalCostParagraph = document.querySelector('.activities-cost');
+// START HERE
 
 
 
