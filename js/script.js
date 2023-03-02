@@ -53,7 +53,7 @@ designSelect.addEventListener('change', e => {
 
 
 // Activities checkboxes
-//FIXME: Wait, is this the old way of doing it? Is this even a requirement of the new version?
+//FIXME: Wait, is this the old way of doing it? Is this even a requirement of the new version? Should clickedType and checkboxType get more accurate names, such as timeslot and clickedTimeslot?
 const checkboxes = document.querySelectorAll('.activities input');
 console.log(checkboxes);
 document.querySelector('.activities').addEventListener('change', (e) => {
@@ -74,9 +74,21 @@ document.querySelector('.activities').addEventListener('change', (e) => {
 
 // New way
 const registerFieldset = document.querySelector('.activities');
-const totalCostParagraph = document.querySelector('.activities-cost');
-// START HERE
+const totalCostDisplay = document.querySelector('.activities-cost');
+// console.log(registerFieldset);
+// console.log(totalCostDisplay);
+registerFieldset.addEventListener('change', (e) => {
+  const costOfClickedEvent = +e.target.getAttribute('data-cost');
+  // console.log(costOfClickedEvent);
+  // console.log(typeof costOfClickedEvent);
+  if (e.target.checked == true) {
+    totalCost += costOfClickedEvent;
+  } else {
+    totalCost -= costOfClickedEvent;
+  }
+alert(totalCost);
 
+})
 
 
 
