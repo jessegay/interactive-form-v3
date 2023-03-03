@@ -55,7 +55,7 @@ designSelect.addEventListener('change', e => {
 // Activities checkboxes
 //FIXME: Wait, is this the old way of doing it? Is this even a requirement of the new version? Should clickedType and checkboxType get more accurate names, such as timeslot and clickedTimeslot?
 const checkboxes = document.querySelectorAll('.activities input');
-console.log(checkboxes);
+//console.log(checkboxes);
 document.querySelector('.activities').addEventListener('change', (e) => {
   const clicked = e.target;
   const clickedType = e.target.getAttribute('data-day-and-time');
@@ -91,8 +91,40 @@ registerFieldset.addEventListener('change', (e) => {
   //console.log(totalCostDisplay);
 })
 
-//new line
+//Payment Info
+//Variables to store payment info components
+const paymentMethodSelect = document.querySelector('#payment');
+const creditCardDiv = document.querySelector('#credit-card');
+const paypalDiv = document.querySelector('#paypal');
+const bitcoinDiv = document.querySelector('#bitcoin');
+const paymentDivs = [creditCardDiv, paypalDiv, bitcoinDiv];
+//Hide payPal and bitCoin upon first load
+paypalDiv.hidden = true;
+bitcoinDiv.hidden = true;
+console.log(paymentMethodSelect.children[1]); //why do I have to use .children? Why not simply paymentMethodSelect[1]? 
+//console.log(paymentMethodSelect[1]);
+//paymentMethodSelect[1].setAttribute('selected', 'selected'); //This is how study guide says we should do it
+paymentMethodSelect[1].selected = true; //This seems simpler. Why don't we use this?
+//Furthermore, why is credit card selected by default? It makes more sense to have all payment method divs hidden, and "Select Payment Method" shown by default. Then the event listener will reveal only what's necessary.
 
+//START HERE. This works, but console shows error:
+/*script.js:113 Uncaught TypeError: Cannot read properties of undefined (reading 'id')
+    at HTMLSelectElement.<anonymous> (script.js:113:24)
+(anonymous) @ script.js:113 */
+paymentMethodSelect.addEventListener('change', e => {
+  for (let i = 0; i < paymentMethodSelect.length; i++) {
+    //console.log(paymentMethodSelect[i]);
+    if (paymentDivs[i].id.includes(e.target.value)) {
+      paymentDivs[i].hidden = false;
+    } else {
+      paymentDivs[i].hidden = true;
+    }
+  }
+
+
+
+
+})
 /*
 Notes from Brian for refactoring validations.
 Create one reusable function then at the end use:
