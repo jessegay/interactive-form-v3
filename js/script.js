@@ -101,7 +101,7 @@ const paymentDivs = [creditCardDiv, paypalDiv, bitcoinDiv];
 //Hide payPal and bitCoin upon first load
 paypalDiv.hidden = true;
 bitcoinDiv.hidden = true;
-console.log(paymentMethodSelect.children[1]); //why do I have to use .children? Why not simply paymentMethodSelect[1]? 
+//console.log(paymentMethodSelect.children[1]); //why do I have to use .children? Why not simply paymentMethodSelect[1]? 
 //console.log(paymentMethodSelect[1]);
 paymentMethodSelect[1].setAttribute('selected', 'selected'); //This is how study guide says we should do it
 //paymentMethodSelect[1].selected = true; //This seems simpler. Why don't we use this?
@@ -116,11 +116,10 @@ paymentMethodSelect.addEventListener('change', e => {
       paymentDivs[i].hidden = true;
     }
   }
-
-
-
-
 })
+
+// START HERE. 8. Form Validation
+
 /*
 Notes from Brian for refactoring validations.
 Create one reusable function then at the end use:
@@ -148,4 +147,21 @@ const handleValidation = (element, reg) => {
 
 ----
 handleValidation(cardNumber, ccReg)
+*/
+//RegEx
+const emailReg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const ccReg = /\d{13,16}?$/;
+const zipReg = /^\d{5}$/;
+const cvvReg = /^\d{3}$/;
+const nameReg = /[\S\s]+[\S]+/; //Not sure if this is ok. Works in RegEx checker but empty argument passes in Console.
+//TODO: make checker for "Is at least one activity selected?"
+
+
+/* from https://stackoverflow.com/questions/65801147/validate-email-pattern-with-regex
+function validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+
 */
